@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState,useEffect } from "react";
+import Github from "./Github";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    let [ value, updateState ] = useState(0);
+    // useEffect(() => {
+    //     document.title = `Counter: ${value}`;
+    // }, [value])
+    return (
+        <>
+        <h1>Counter App with Hook</h1>
+        <h3>{value}</h3>
+        <button onClick={() => {
+            updateState(value + 1)
+        }}>Increment</button>
+
+<button onClick={() => {
+            updateState(value - 1)
+        }}>Decrement</button>
+        
+        <button onClick={() => {
+            updateState(0)
+        }}>Reset</button>
+        <div>
+        <Github />
+        </div>
+        </>
+        )
 }
-
-export default App;
